@@ -4,7 +4,7 @@ ELC其实就是English Listening Comprehension的简写.
 
 ----------
 
-这是从[可可英语](http://www.kekenet.com/ "可可英语")上自动下载英语听力的python脚本
+这是从[可可英语](http://www.kekenet.com/ "可可英语")上自动下载英语听力的python脚本.目的是获取高质量的对话听 力:) , 我挺喜欢的.
 
 >首页 > 英语口语 > 实战英语口语 > 美语情景对话 > 正文
 
@@ -15,7 +15,7 @@ ELC其实就是English Listening Comprehension的简写.
 
 2. 听力内容,中英对照.(txt)
 
-下载连接已事先保存在了"listen_conversation.txt"中,可以下载1000+的内容,尽情食用.
+下载所需要的链接已事先保存在了"listen_conversation.txt"中,可见你可以下载1000+的内容,不过那并不是最终的下载连接,需要解析才行.总之,那里面的数量对应着你的下载数量,可以酌情调整.
 
 ----------
 
@@ -30,6 +30,10 @@ ELC其实就是English Listening Comprehension的简写.
 - beautifulsoup4 (4.5.3)
 
 ----------
+### 使用
+- python spider.py
+
+----------
 
 ### 使用注意
 1. 请酌情考虑下载时间间隔,以免增大对方服务器负载.
@@ -41,4 +45,4 @@ ELC其实就是English Listening Comprehension的简写.
 ----------
 
 ### 感谢
-- 十分感谢[可可英语](http://www.kekenet.com/ "可可英语")的免费分享.
+- 十分感谢[可可英语](http://www.kekenet.com/ "可可英语")的免费分享.真的十分感谢.
