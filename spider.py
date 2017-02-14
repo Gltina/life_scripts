@@ -1,23 +1,10 @@
-'''
-	下载可可英语听力资料
-	文件保存格式举例如下:
-		-第993期-E-Books电子书
-			-第993期-E-Books电子书.mp3
-			-第993期-E-Books电子书.txt	
-	时间:2017-02-10
-	作者:ptsph@foxmail.com
-'''
 import requests
+import urllib.request
 from bs4 import BeautifulSoup
 import time
 import random
 session = requests.session()
 import os
-
-# 请设置运行间隔,单位:秒
-timeval = 2
-
-
 
 header = {
         "Accept-Encoding": "gzip, deflate",
@@ -27,6 +14,8 @@ header = {
         "Content-Type": "application/x-www-form-urlencoded",
         "Host": "www.kekenet.com"
 }
+# 请设置运行间隔,单位:秒
+timeval = 2
 
 class english_conversation:
     listen_name = ''
@@ -77,20 +66,18 @@ def get_listen():
         random_num = random.randint(0,len(download_list)-1)
         print('download from (the random num is %s)%s '%(random_num,download_list[random_num]))
         try:
-            #periodical = listen_object.listen_name[listen_object.listen_name.find('第')+1:listen_object.listen_name.find('期')]
             # 名字处理
             listen_object.listen_name = ''.join(listen_object.listen_name.split(' '))
             listen_object.listen_name = listen_object.listen_name[listen_object.listen_name.find('第'):].replace(':','-')
             print(listen_object.listen_name)
-            mp3 = session.get(download_list[random_num],headers=header)
             if os.path.exists('./%s'%(listen_object.listen_name)) == False:
                 os.mkdir('./%s'%(listen_object.listen_name))
-            open("%s/%s.mp3"%(listen_object.listen_name,listen_object.listen_name),'wb').write(mp3.content)
+            urllib.request.urlretrieve(download_list[random_num], "%s/%s.mp3"%(listen_object.listen_name,listen_object.listen_name))
             open("%s/%s.txt"%(listen_object.listen_name,listen_object.listen_name),'w+').writelines(listen_object.listen_content)
         except:
             print('download is timeout')
-        print('%s th . Download is done,wait %s s'%(count+1,timeval))
-        print('你已经下载%s个听力了,Ctrl+C可停止运行'%str(count+1))
+        print('%s th . Download is done,wait %s s' % (count + 1, timeval))
+        print('你已经下载%s个听力了,Ctrl+C可停止运行' % str(count + 1))
         time.sleep(timeval)
         count += 1
 
