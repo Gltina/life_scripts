@@ -19,7 +19,7 @@ int main()
 
 	serial_comm.flush_buffer();
 
-	serial_comm.send("test data");// WriteChar(string("Please send data:").c_str(), 20);
+	serial_comm.send("test data");
 
 	string receive_str;
 

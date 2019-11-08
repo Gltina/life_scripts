@@ -1,7 +1,5 @@
 #include "SerialComm.h"
 
-
-
 SerialComm::SerialComm()
 {
 }
@@ -185,7 +183,8 @@ int SerialComm::receive(string & str)
 
 			if (!bResult)
 			{
-				switch (dwError == GetLastError())
+				dwError = GetLastError();
+				switch (dwError)
 				{
 				case ERROR_IO_PENDING:
 
